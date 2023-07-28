@@ -1,4 +1,5 @@
 import { NextFunction, Request, Response } from 'express';
+import IFinances from '../Interfaces/Finances/Finances';
 import IUser from '../Interfaces/User/User';
 import { ILogin, NewEntity } from '../Interfaces/User/UserModel';
 
@@ -21,6 +22,28 @@ export default class Validations {
     next();
   }
 
+  static validateFinances(req : Request, res : Response, next : NextFunction) : Response | void {
+    const userId = Number(res.locals.userId);
+    const finance : NewEntity<IFinances> = req.body;
+    const required = ['value', 'type', 'description'];
+    const notFound = required.find((key) => !(key in finance));
+    if (notFound) {
+      return res.status(400).json({ message: `${notFound} is required` });
+    }
+
+    if (typeof finance.value !== 'number') {
+      return res.status(400).json({ message: 'Value must be a number' });
+    }
+
+    if (!userId) return res.status(400).json({ message: 'userId is required' })
+
+    if (finance.type !== 'gain' && finance.type !== 'spent') {
+      return res.status(401).json({ message: 'Type is different in gain or spent' });
+    }
+
+    next();
+  }
+ 
   static validateCreateUser(req : Request, res : Response, next : NextFunction) : Response | void {
     const { email, fullName, password, phone } = req.body as NewEntity<IUser>
 

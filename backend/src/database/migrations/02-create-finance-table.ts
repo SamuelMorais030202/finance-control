@@ -11,6 +11,7 @@ export default {
       userId: {
         type: DataTypes.INTEGER,
         allowNull: false,
+        field: 'user_id',
         references: {
           model: 'users',
           key: 'id',

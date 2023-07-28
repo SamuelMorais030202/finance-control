@@ -3,5 +3,5 @@ export default interface IFinances {
   userId: number;
   value: string;
   type: string;
-  description: string;
+  description: string; 
 }
