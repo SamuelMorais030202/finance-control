@@ -79,8 +79,6 @@ export const DashBoard = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  console.log('teste');
-
   return (
     <div className='dashboard-page'>
       <Header text={ 'Controle Financeiro' } />
