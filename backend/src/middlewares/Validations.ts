@@ -4,7 +4,7 @@ import IUser from '../Interfaces/User/User';
 import { ILogin, NewEntity } from '../Interfaces/User/UserModel';
 
 export default class Validations {
-  private static phoneRegex = /^\(\d{2}\) \d{9}$/;
+  private static phoneRegex = /^(?:\(\d{2}\)\s*)?\d{4,5}\d{4}$/;
   private static emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   private static passwordMinLength = 4;
 
@@ -57,7 +57,7 @@ export default class Validations {
       });
     }
 
-    if (!Validations.phoneRegex.test(phone)) {
+    if (phone.length < 11) {
       return res.status(401).json({ message: 'Invalid phone' });
     }
 
