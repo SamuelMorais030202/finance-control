@@ -43,4 +43,12 @@ export default class UserService {
     await this.userModel.delete(id);
     return { status: 'SUCCESSFUL', data: { message: 'User deleted' } };
   }
+
+  public async getByUserId(id: number) : Promise<ServiceResponse<IUser>> {
+    const user = await this.userModel.findById(id);
+
+    if (!user) return { status: 'NOT_FOUND', data: { message: `User ${id} not found` } };
+
+    return { status: 'SUCCESSFUL', data: user };
+  }
 }

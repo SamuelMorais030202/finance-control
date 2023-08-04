@@ -6,6 +6,12 @@ import Validations from '../middlewares/Validations';
 const userRouter = Router();
 const userController = new UserController();
 
+userRouter.get(
+  '/',
+  Authorized,
+  (req : Request, res : Response) => userController.getByUserId(req, res),
+);
+
 userRouter.post(
   '/',
   Validations.validateCreateUser,
