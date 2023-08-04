@@ -7,7 +7,7 @@ import {
 } from "sequelize";
 import SequelizeUser from "./SequelizeUser";
 import db from '.';
-
+ 
 class SequelizeFinances extends Model<InferAttributes<SequelizeFinances>,
 InferCreationAttributes<SequelizeFinances>> {
   declare id: CreationOptional<number>;

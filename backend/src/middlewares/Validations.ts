@@ -47,7 +47,7 @@ export default class Validations {
   static validateCreateUser(req : Request, res : Response, next : NextFunction) : Response | void {
     const { email, fullName, password, phone } = req.body as NewEntity<IUser>
 
-    if (!email || !fullName || ! password || !phone) {
+    if (!email || !fullName || !password || !phone) {
       return res.status(400).json({ message: 'All fields must be filled' });
     }
 

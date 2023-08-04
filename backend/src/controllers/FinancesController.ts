@@ -21,14 +21,14 @@ export default class FinancesController {
 
   public async getTypeFinances(req : Request, res : Response) {
     const userId = Number(res.locals.userId);
-    const { type } = req.body;
+    const { type } = req.params;
     const response = await this.financesServices.getTypeFinances(userId, type);
 
     if (response.status !== 'SUCCESSFUL') {
       return res.status(mapStatusHTTP(response.status)).json(response.data);
     }
 
-    const sum = response.data.map((finance) => finance.value).reduce((acc, crr) => acc + crr);
+    const sum = response.data.map((finance) => Number(finance.value)).reduce((acc, crr) => acc + crr, 0);
 
     return res.status(200).json({
       finances: response.data,

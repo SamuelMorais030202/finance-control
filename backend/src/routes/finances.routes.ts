@@ -20,7 +20,7 @@ financesRouter.get(
 );
 
 financesRouter.get(
-  '/type',
+  '/:type',
   Authorized,
   (req : Request, res : Response) => financesController.getTypeFinances(req, res),
 );

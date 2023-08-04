@@ -24,7 +24,7 @@ export default class FinancesModel implements IFinancesModel {
     const dbFinances : IFinances[] = await this.model.findAll({ where: { userId } });
     return dbFinances;
   }
-
+ 
   async getTypeFinances(userId: IFinances['userId'], type: IFinances['type']): Promise<IFinances[] | null> {
     const dbFinances : IFinances[] = await this.model.findAll({
       where: { userId, type }
