@@ -7,6 +7,8 @@ import { Form } from '../../components/Form';
 import { Table } from '../../components/Table';
 import { Header } from '../../components/Header';
 
+import './index.css';
+
 export const DashBoard = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
@@ -89,7 +91,7 @@ export const DashBoard = () => {
 
   return (
     <div className='dashboard-page'>
-      <Header text={ 'Controle Financeiro' } />
+      <Header text={ 'Controle Financeiro' } headerDashboard={ true } />
       <Finances />
       <Form addFinances={ addFinances } />
       <Table deleteFinances={ deleteFinances } />

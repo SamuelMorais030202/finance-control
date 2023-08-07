@@ -1,14 +1,24 @@
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { FaUser } from "react-icons/fa";
 
-export const Header = ({ text }) => {
-  // const navigate = useNavigate();
+import './index.css';
+
+export const Header = ({ text, headerDashboard }) => {
+  const navigate = useNavigate();
 
   return (
     <header>
       <h1 className={ text }>
         { text }
       </h1>
-      {/* <p onClick={ () => navigate('/edit-profile') }>Profile</p> */}
+      {
+        headerDashboard
+        ? <p onClick={ () => navigate('/edit-profile') }>
+          <span><FaUser size={20} color="#5AB7EA" /></span>
+          Profile
+          </p>
+        : null
+      }
     </header>
   )
 }
