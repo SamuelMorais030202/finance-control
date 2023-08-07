@@ -1,14 +1,14 @@
-import { useNavigate } from "react-router-dom"
+// import { useNavigate } from "react-router-dom";
 
 export const Header = ({ text }) => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   return (
     <header>
-      <h1>
+      <h1 className={ text }>
         { text }
       </h1>
-      <p onClick={ () => navigate('/edit-profile') }>Profile</p>
+      {/* <p onClick={ () => navigate('/edit-profile') }>Profile</p> */}
     </header>
   )
 }

@@ -4,6 +4,8 @@ import { Header } from '../../components/Header';
 import { Input } from '../../components/Input';
 import { requestLogin, setToken } from '../../services/request';
 
+import './index.css';
+
 export const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -38,7 +40,7 @@ export const Login = () => {
     <div className='login-page'>
       <Header text={ 'Login' } />
       <section className='user-login'>
-        <form>
+        <form className='form-login'>
           <Input type="Email" value={ email } setValue={ setEmail } />
           <Input type="Password" value={ password } setValue={ setPassword } />
           {
@@ -59,9 +61,9 @@ export const Login = () => {
           >
             Login
           </button>
-          <p onClick={ () => navigate('/new-profile') }>Crie uma conta</p>
         </form>
       </section>
+      <p onClick={ () => navigate('/new-profile') }>Crie uma conta</p>
     </div>
   )
 }
