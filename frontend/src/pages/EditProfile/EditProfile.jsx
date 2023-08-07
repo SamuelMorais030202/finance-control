@@ -3,6 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import api from '../../services/request';
 import { setToken } from '../../services/request';
 
+import { FaUser } from "react-icons/fa";
+import './index.css';
+
 export const EditProfile = () => {
   const [user, setUser] = useState({});
   const [isEdit, setIsEdit] = useState(false);
@@ -55,15 +58,16 @@ export const EditProfile = () => {
   }, [navigate])
 
   return (
-    <div>
+    <div className='page-edit-profile'>
       <h1>Edit profile</h1>
+      <FaUser size={68} color="gray" />
       {
         !isEdit
         ? <section className='profile'>
-            <p>Name: {' '} { fullName }</p>
-            <p>Email: {' '} { email }</p>
-            <p>Phone: {' '} { phone }</p>
-            <button onClick={ () => setIsEdit(true) }>Edit Profile</button>
+            <p><span>Name:</span> {' '} { fullName }</p>
+            <p><span>Email:</span> {' '} { email }</p>
+            <p><span>Phone:</span> {' '} { phone }</p>
+            <button onClick={ () => setIsEdit(true) } className="button">Edit Profile</button>
           </section>
         : <section className='profile-edit'>
             <label htmlFor="fullName">
@@ -78,7 +82,7 @@ export const EditProfile = () => {
             <label htmlFor="password">
               <input type="password" placeholder='enter the password' onChange={ ({ target }) => setPassword(target.value) } />
             </label>
-            <button onClick={ () => editProfile() }>
+            <button onClick={ () => editProfile() } className="button">
               Edit
             </button>
           </section>
