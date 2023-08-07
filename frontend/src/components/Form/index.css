@@ -1,5 +1,4 @@
 .add-finances {
-  margin-top: -15px;
   padding: 30px;
   display: flex;
   justify-content: center;
@@ -8,15 +7,21 @@
 }
 
 .add-finances input {
-  border: none;
-  padding: 6px;
+  padding: 7px;
   border-radius: 11px;
+  border: 1px solid white;
+  color: white;
+  background-color: transparent;
   font-family: 'Courier New', Courier, monospace;
+  font-weight: 600;
+  border-image: linear-gradient(to right, #5AB7EA, #a43cff);
+  border-image-slice: 1;
+  outline: none;
 }
 
 .inputs-radios {
   display: flex;
-  gap: 8px;
+  gap: 12px;
   flex-wrap: wrap;
   align-items: center;
 }
@@ -31,10 +36,10 @@
 
 .add-finances button {
   border: none;
-  padding: 10px;
+  padding: 12px;
   border-radius: 8px;
   margin-left: 10px;
   background-color: #5AB7EA;
-  color: white;
-  font-weight: 600;
+  color: rgb(255, 255, 255);
+  font-weight: 700;
 }

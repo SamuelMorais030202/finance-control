@@ -1,6 +1,5 @@
 .finances {
-  margin-top: -10px;
-  margin-bottom: 25px;
+  margin-bottom: 10px;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -25,7 +24,7 @@
 }
 
 .card p {
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .card-prodhibited {
