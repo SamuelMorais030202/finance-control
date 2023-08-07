@@ -7,9 +7,9 @@ export const FinanceProvider = ({ children }) => {
   const [description, setDescription] = useState('');
   const [value, setValue] = useState(undefined);
   const [type, setType] = useState('');
-  const [gain, setGain] = useState();
-  const [spent, setSpent] = useState();
-  const [total, setTotal] = useState();
+  const [gain, setGain] = useState(0);
+  const [spent, setSpent] = useState(0);
+  const [total, setTotal] = useState(0);
 
   const context = useMemo(() => ({
     finances,

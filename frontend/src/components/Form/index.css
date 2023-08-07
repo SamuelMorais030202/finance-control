@@ -1,0 +1,40 @@
+.add-finances {
+  margin-top: -15px;
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.add-finances input {
+  border: none;
+  padding: 6px;
+  border-radius: 11px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.inputs-radios {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.gain {
+  color: green;
+}
+
+.spent {
+  color: red;
+}
+
+.add-finances button {
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  margin-left: 10px;
+  background-color: #5AB7EA;
+  color: white;
+  font-weight: 600;
+}
