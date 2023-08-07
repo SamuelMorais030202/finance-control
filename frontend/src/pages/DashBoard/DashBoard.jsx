@@ -75,17 +75,6 @@ export const DashBoard = () => {
     })()
   }, [navigate, setSpent, setGain, setTotal, fetchFinances]);
 
-  useEffect(() => {
-    (async () => {
-      const responseGain = await requestData('/finances/gain');
-      setGain(responseGain.total);
-  
-      const responseSpent = await requestData('/finances/spent');
-      setSpent(responseSpent.total);
-      setTotal(responseGain.total - responseSpent.total);
-    })()
-  }, []);
-
   const addFinances = async () => {
     try {
       setDescription('');

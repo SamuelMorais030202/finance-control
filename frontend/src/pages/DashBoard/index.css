@@ -2,8 +2,12 @@
   margin: 0;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 .dashboard-page {
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
   color: white;
   background-color: black;

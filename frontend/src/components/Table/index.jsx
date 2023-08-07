@@ -1,6 +1,8 @@
 import { useFinance } from '../../hooks/useFinance';
 import { FaTrashAlt } from 'react-icons/fa';
 
+import './index.css';
+
 export const Table = ({ deleteFinances }) => {
   const { finances } = useFinance();
 
@@ -19,7 +21,7 @@ export const Table = ({ deleteFinances }) => {
             finances.map((finance) => (
               <tr key={ finance.id }>
                 <td>{ finance.description }</td>
-                <td>{ finance.value }</td>
+                <td className={ finance.type === 'gain' ? 'gain-value' : 'spent-value' }>{ finance.value }</td>
                 <td>{ finance.type }</td>
                 <td onClick={ () => deleteFinances(finance.id) }><FaTrashAlt size={13} color="red" /></td>
               </tr>

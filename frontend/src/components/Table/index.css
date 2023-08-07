@@ -1,0 +1,32 @@
+.finances-table {
+  padding: 20px;
+  margin: auto;
+  width: 70%;
+  margin-bottom: 50px;
+}
+
+.finances-table table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table th, td {
+  padding: 9px;
+  text-align: left;
+}
+
+tbody tr {
+  border-bottom: 1px solid #ddd;
+}
+
+th:last-child {
+  margin-right: 20px;
+}
+
+.gain-value {
+  color: green;
+}
+
+.spent-value {
+  color: red;
+}
