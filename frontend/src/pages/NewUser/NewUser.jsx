@@ -3,6 +3,8 @@ import { Navigate } from "react-router-dom";
 import { Input } from "../../components/Input";
 import { requestLogin } from "../../services/request";
 
+import './index.css';
+
 export const NewUser = () => {
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
@@ -22,6 +24,8 @@ export const NewUser = () => {
         phone,
       });
 
+      alert('Conta criada com sucesso');
+
       setUserCreated(true);
       
     } catch ({ response: { data } }) {
@@ -33,9 +37,9 @@ export const NewUser = () => {
   
   return (
     <div className="new-user-page">
-      <h1>Crie sua conta</h1>
+      <h1>Create your account</h1>
       <section className="new-user">
-        <form>
+        <form className="form-new-user">
           <Input
             type="FullName"
             value={ fullName }

@@ -1,4 +1,4 @@
-.login-page {
+.new-user-page {
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -7,7 +7,8 @@
   background-color: rgb(0, 0, 0);
 }
 
-.Login {
+.new-user-page h1 {
+  margin-top: 30px;
   font-family: 'Courier New', Courier, monospace;
   font-weight: 600;
   font-size: 35px;
@@ -17,32 +18,14 @@
   -webkit-text-fill-color: transparent;
 }
 
-.user-login {
-  width: 330px;
-  background-color: #1a1a1a;
-  position: relative;
-  border-radius: 11px;
-  padding: 10px;
-}
-
-.user-login::before {
-  content: "";
-  position: absolute;
-  inset: -5px;
-  z-index: -1;
-  border-radius: 16px;
-  background: linear-gradient(220.94deg, #5AB7EA, #a43cff);
-}
-
-.form-login {
+.form-new-user {
   display: flex;
   flex-direction: column;
-  gap: 15px;
   align-items: center;
-  padding: 18px;
+  gap: 15px;
 }
 
-.form-login input {
+.form-new-user input {
   width: 195px;
   height: 10px;
   border: 2px solid transparent;
@@ -54,7 +37,11 @@
   outline: none;
 }
 
-.form-login button {
+.form-new-user p {
+  color: white;
+}
+
+.form-new-user button {
   margin-top: 15px;
   width: 120px;
   padding: 6px;
@@ -63,10 +50,4 @@
   background: linear-gradient(220.94deg, #5AB7EA, #a43cff);
   font-size: 15px;
   color: white;
-}
-
-.login-page p {
-  text-align: center;
-  color: white;
-  font-family: Arial, Helvetica, sans-serif;
 }
