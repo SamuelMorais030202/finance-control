@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api, { requestData, setToken, requestLogin } from '../../services/request';
 import { useFinance } from '../../hooks/useFinance';
@@ -8,8 +8,9 @@ import { Table } from '../../components/Table';
 import { Header } from '../../components/Header';
 
 export const DashBoard = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
   const {
-    finances,
     setFinances,
     description,
     setDescription,
@@ -29,8 +30,8 @@ export const DashBoard = () => {
     await api.delete(`/finances/${id}`);
     fetchFinances();
   }
-
-  const fetchFinances = async () => {
+ 
+  const fetchFinances = useCallback(async () => {
     const token = localStorage.getItem('token') || '';
 
     if (!token) {
@@ -41,7 +42,14 @@ export const DashBoard = () => {
     
     const response = await requestData(endpoint);
     setFinances(response);
-  }
+
+    const responseGain = await requestData('/finances/gain');
+    setGain(responseGain.total);
+
+    const responseSpent = await requestData('/finances/spent');
+    setSpent(responseSpent.total);
+    setTotal(responseGain.total - responseSpent.total);
+  },[navigate, setFinances, setGain, setSpent, setTotal]);
 
   useEffect(() => {
     (async() => {
@@ -51,16 +59,19 @@ export const DashBoard = () => {
         navigate('/login');
       } else {
         setToken(token);
+  
+        try {
+          await requestData('/login/authenticated');
+          setIsAuthenticated(true);
+        } catch (error) {
+          navigate('/login');
+          return;
+        }
       }
 
-      const responseGain = await requestData('/finances/gain');
-      setGain(responseGain.total);
-  
-      const responseSpent = await requestData('/finances/spent');
-      setSpent(responseSpent.total);
-      setTotal(responseGain.total - responseSpent.total);
+      fetchFinances();
     })()
-  }, [finances, navigate, setSpent, setGain, setTotal])
+  }, [navigate, setSpent, setGain, setTotal, fetchFinances]);
 
   const addFinances = async () => {
     try {
@@ -74,10 +85,7 @@ export const DashBoard = () => {
     }
   }
 
-  useEffect(() => {
-    fetchFinances();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  if (!isAuthenticated) return <div><h1>Loading...</h1></div>
 
   return (
     <div className='dashboard-page'>

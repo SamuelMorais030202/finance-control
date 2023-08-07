@@ -24,12 +24,12 @@ export default class LoginController {
     });
   }
 
-  // async loginRole(_req : Request, res : Response) {
-  //   const autorized = res.locals;
+  async loginRole(_req : Request, res : Response) {
+    const id = res.locals.userId;
 
-  //   const user = await this.model.findById(autorized.id);
-  //   if (!user) return res.status(401).json({ message: 'user not found' });
+    const user = await this.model.findById(id);
+    if (!user) return res.status(401).json({ message: 'user not found' });
 
-  //   return res.status(200).json({ role: user.role });
-  // }
+    return res.status(200).json({ message: 'Authenticated user' });
+  }
 }

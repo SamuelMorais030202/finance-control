@@ -19,7 +19,6 @@ export const EditProfile = () => {
     setFullName(data.fullName);
     setEmail(data.email);
     setPhone(data.phone);
-    // setPassword(data.password);
   }
 
   const editProfile = async () => {
