@@ -41,6 +41,6 @@ Este é um projeto de controle de finanças desenvolvido para permitir que os us
 
 ## Contato
 
-E-mail de contato: moraissamuel009@gmail.com
-Celular: (38) 988449448
-Linkedin: https://www.linkedin.com/in/samuel-morais-garcia-4a823b244/
+- E-mail de contato: moraissamuel009@gmail.com
+- Celular: (38) 988449448
+- Linkedin: https://www.linkedin.com/in/samuel-morais-garcia-4a823b244/
