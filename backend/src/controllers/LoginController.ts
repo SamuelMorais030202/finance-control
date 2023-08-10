@@ -23,7 +23,7 @@ export default class LoginController {
       token,
     });
   }
-
+ 
   async loginRole(_req : Request, res : Response) {
     const id = res.locals.userId;
 

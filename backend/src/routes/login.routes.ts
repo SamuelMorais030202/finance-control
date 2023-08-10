@@ -17,5 +17,5 @@ loginRouter.post(
   Validations.validateLogin,
   (req : Request, res : Response) => login.login(req, res),
 );
-
+ 
 export default loginRouter;
