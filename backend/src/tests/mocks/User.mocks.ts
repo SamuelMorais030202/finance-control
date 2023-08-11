@@ -14,7 +14,16 @@ const loginUser = {
   phone: '38988449448',
 }
 
+const invalidLoginUser = {
+  id: 1,
+  fullName: 'Samuel Morais',
+  email: 'invalidemail',
+  password: 'S@muel123',
+  phone: '38988449448',
+}
+
 export {
   user,
   loginUser,
+  invalidLoginUser,
 }
